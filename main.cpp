@@ -9,8 +9,9 @@ int main()
     cin >> n >> a >> b >> k >> m; cin.ignore();
 	//Решим уравнение методом подбора с условиями. Возьмем первое решение, так как может быть множество решений!
     for( int x( 0 ) ; x < n - a ; ++x ){
-        if( !( ( a * x  - ( m - k ) ) % b ) ){
-            cout << x + abs( a * x - ( m - k )) / b;
+        int y( abs( a * x - ( m - k ) ) / b );
+        if( k + ( a * x - y * b ) == m ){
+            cout << x + y;
             return 0;
         }
     }
