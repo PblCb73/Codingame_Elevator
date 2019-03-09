@@ -4,3 +4,5 @@
 В CMake необходимо указать путь к INCLUDE и LIBS Google Test Framework.
 Запустить build.bat, должна создаться директория "build".
 Собранный elevator_test.exe должен появиться в "build/bin/".
+
+(CMake генерирует файлы для MinGW, что бы исправить укажите в CMake другой тип make файла, исправте в build.bat тип make файла)
