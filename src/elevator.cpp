@@ -1,17 +1,9 @@
-#include <iostream>
-#include <string>
-#include <set>
+#include "elevator.h"
 
 using namespace std;
 
-int main()
+int testElevator( int n, int a, int b, int k, int m )
 {
-	int n;
-	int a;
-	int b;
-	int k;
-	int m;
-	cin >> n >> a >> b >> k >> m; cin.ignore();
 	set<int> floors;
 	//Если мы были уже на текущем этаже, значит решения нет
 	while( floors.find( k ) == floors.end() ){
@@ -21,11 +13,7 @@ int main()
 		else if( ( k < m ) && ( k - b > 0 ) ) k -= b;//Текущий этаж ниже чем требуемый, и можно двигаться вниз
 		else if( ( k > m ) && ( k - b > 0 ) ) k -= b;//Текущий этаж выше чем требуемый, и можно двигаться вниз
 		else if( ( k > m ) && (  k + a <= n ) ) k += a;//Текущий этаж выше чем требуемый, и можно двигаться на верх
-		if( k == m ){ //Если нашли, то выводим результат, и выходим из цикла
-			cout << floors.size();
-			return 0;
-		}
+		if( k == m )return floors.size();
 	}
-	cout<<"IMPOSSIBLE";
 	return 0;
 }
